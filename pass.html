@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+    <title>Phrase page</title>
+
+<h2>pass phrase by sravan kumar cheipuri </h2>
+
+<form>
+    <label for="form1_phrase">Enter a secret phrase </label>
+    <input type ="password" id="form1_phrase" value="let me in" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_text">Enter a phrase </label>
+    <input type ="text" id="form1_text" autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="check the phrase">
+</form>
+<p id="result"></p>
+
+
+<script> 
+
+var correct = 0;
+var wrong = 0;
+var usingImage = 1;
+function processPhrase(){
+    e = document.getElementById("form1_phrase").value
+    r = document.getElementById("form1_text").value
+    res = document.getElementById("result")
+    if(e == r){
+        correct += 1;
+        alert("access allowed");
+        res.innerHTML="Right - "+correct
+    }else {
+        wrong += 1;
+        alert("access denied");
+        res.innerHTML = "wrong - "+wrong
+    }
+}
+
+function newImage() {
+       switch (usingImage) {
+           case 1:
+           document.getElementById("image1").src = "Ibizan-Hound.jpg";
+           usingImage+=1;
+            break;
+            case 2:
+            document.getElementById("image1").src = "PaintedTurtle.jpg";
+            usingImage+=1;
+            break;
+            case 3:
+            document.getElementById("image1").scr = "Uromastyx.jpg";
+            usingImage+=1;
+            break;
+       
+           default:
+               break;
+       }
+    }
+
+
+</script>
+<div class="container">
+    <img src="Uromastyx.jpg" onclick="newImage()" id="image1" alt="Uromastyx" style="width: 200px;height: 200px;">
+    </div>
+    
+
+</body>
+</html> 
