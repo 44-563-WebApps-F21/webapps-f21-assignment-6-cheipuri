@@ -5,6 +5,19 @@
     <title>Phrase page</title>
 
 <h2>pass phrase by sravan kumar cheipuri </h2>
+<style>
+    h2 {
+        background-color: rgb(223, 134, 26);
+    }
+
+    label {
+        color: rgb(147, 33, 212);
+    }
+
+    p {
+        color: rgb(17, 199, 108);
+    }
+</style>
 
 <form>
     <label for="form1_phrase">Enter a secret phrase </label>
@@ -23,6 +36,8 @@
 var correct = 0;
 var wrong = 0;
 var usingImage = 1;
+var countP = 0;
+var countN = 0;
 function processPhrase(){
     e = document.getElementById("form1_phrase").value
     r = document.getElementById("form1_text").value
@@ -35,8 +50,17 @@ function processPhrase(){
         wrong += 1;
         alert("access denied");
         res.innerHTML = "wrong - "+wrong
+        if(countN >=3){
+                if(wrong>=3){
+                    incorrectPassPhrase();
+                }
+            }
     }
 }
+
+function incorrectPassPhrase() {
+        alert("Account Locked");
+    }
 
 function newImage() {
        switch (usingImage) {
@@ -54,6 +78,9 @@ function newImage() {
             break;
        
            default:
+           document.getElementById("image1").scr = "Uromastyx.jpg";
+           usingImage+=1;
+
                break;
        }
     }
